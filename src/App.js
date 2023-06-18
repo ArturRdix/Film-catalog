@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import Car from './Components/Car';
+import FilmContainer from './Components/FilmContainer/FilmContainer';
+import PrevFilm from './Components/PrevFilm/PrevFilm';
+import './styles/App.css'
 
 const App = () => {
   const [carList, setCarList] = useState([
@@ -29,6 +32,7 @@ const App = () => {
       {carList.map((e) => (
         <Car key={e.car} name={e.car} />
       ))}
+      <FilmContainer/>
     </div>
   );
 };
