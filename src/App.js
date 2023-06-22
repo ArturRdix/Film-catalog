@@ -1,40 +1,26 @@
-import React, { useState } from 'react';
-import Car from './Components/Car';
-import FilmContainer from './Components/FilmContainer/FilmContainer';
-import PrevFilm from './Components/PrevFilm/PrevFilm';
+import axios from 'axios';
+import React from 'react';
 import './styles/App.css'
 
-const App = () => {
-  const [carList, setCarList] = useState([
-    {
-      car: 'Audi'
-    },
-    {
-      car: 'BMW'
-    },
-    {
-      car: 'Porsche'
-    }
-  ]);
+class App extends React.Component {
 
-  const [tmpValue, setTmpValue] = useState('')
+  state = {
+    isLoading: true,
+    movies: []
+  }
 
-  const pushCar = (value) => {
-    if (value !== '' && value != undefined) {
-      setCarList(prevCarList => [...prevCarList, { car: value }]);
-    }
-  };
+  getMovies = async () => {
+    const { data: { data: { movies } } } = await axios.get('https://yts.mx/api/v2/list_movies.json')
+  }
 
-  return (
-    <div className="App">
-      <input onChange={(v) => setTmpValue(v.target.value)} type="text" />
-      <button onClick={() => pushCar(tmpValue)}>Добавить</button>
-      {carList.map((e) => (
-        <Car key={e.car} name={e.car} />
-      ))}
-      <FilmContainer/>
-    </div>
-  );
-};
-
+  componentDidMount() {
+    this.getMovies()
+  }
+  render() {
+    return (
+      <div>
+      </div>
+    )
+  }
+}
 export default App;
