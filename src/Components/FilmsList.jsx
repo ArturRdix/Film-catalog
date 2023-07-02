@@ -1,15 +1,18 @@
 import React from 'react';
-import './FilmsList.css'
+import './FilmsList.css';
 
-const FilmsList = ({ key, title, poster, year, genre }) => {
-
+const FilmsList = ({ id, title, poster, year, genre, rate }) => {
     return (
-        <div className="film-container">
-            <img className="poster" src={poster} />
-            <div className="title">{title}</div>
-            <div className="info">{year}, {genre}</div>
-        </div>
-    )
-}
+        <section className="film-container" key={id}>
+            <img className="poster" src={poster} alt="Poster" />
+            <div className='title-container' ><h6 className="title">{title}</h6> <span className='title-rate'>{rate}</span></div>
+            <div className="info">
+                <span className='info-year'>{year}</span>
+                <br />
+                <span className='info-genre'>{genre.join(', ')}</span>
+                </div>
+        </section>
+    );
+};
 
-export default FilmsList
+export default FilmsList;
