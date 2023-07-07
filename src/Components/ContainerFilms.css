@@ -2,8 +2,10 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    justify-content: center;
+    justify-content: space-between;
+    background: #161616;
     padding: 20px;
+
 }
 
 .pagination {

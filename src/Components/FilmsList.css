@@ -4,10 +4,11 @@
     gap: 5px;
     cursor: pointer;
     max-width: 166px;
+    padding: 4px;
+    background-color: #323232;
 }
 
 .poster {
-    width: 166px;
     height: 250PX;
 }
 

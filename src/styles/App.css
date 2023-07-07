@@ -5,9 +5,16 @@
 }
 
 body {
-    background-color: #09161c;
+    background-color: black;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     height: 100%;
     
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+.app{
+    padding: 200px 200px 0 200px;
 }
