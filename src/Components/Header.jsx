@@ -1,20 +1,24 @@
 import React from 'react';
+import { useState } from 'react';
 import './Header.css';
+import MySelect from './UI/MySelect';
 
 const Header = () => {
+    const [selectedSort, setSelectedSort] = useState('')
+
     return (
         <header className="header">
             <div className="logo-sort-block">
                 <h1>Films-Catalogy</h1>
-                <div className="sort-block">
-                    <label htmlFor="sortSelect">Сортировать по: </label>
-                    <select id='sortSelect' className='sort-select'>
-                        <option value="value1">По умолчанию</option>
-                        <option value="value2">По году</option>
-                        <option value="value3">По рейтингу</option>
-                        <option value="value4">По афавиту</option>
-                    </select>
-                </div>
+                <MySelect
+                    value={selectedSort}
+                    onChange={sort => setSelectedSort(sort)}
+                    defaultValue='Сортировка по'
+                    options={[
+                        { value: 'year', name: 'Году' },
+                        { value: 'rate', name: 'Рейтингу' },
+                        { value: 'title', name: 'Названию' }
+                    ]} />
             </div>
             <nav className="nav">
                 <div className="search-block">

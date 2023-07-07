@@ -10,59 +10,93 @@
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         body {
-            background-color: #09161c;
+            background-color: #111;
             color: white;
-            font-family: Arial, Helvetica, sans-serif
         }
 
-        .wrapper {
+
+        .header {
+            border: 1px solid;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
+            padding: 10px;
+            align-items: center;
         }
 
-        .film-container {
+        .search-block {
             display: flex;
-            flex-direction: column;
-            gap: 5px;
+            gap: 3px;
+            margin-bottom: 6px;
         }
 
-        .poster {
-            width: 166px;
-            height: 250PX;
+        .search-input {
+            outline: none;
+            width: 100%;
+            padding: 6px;
+            background-color: #09161c;
+            border: 2px solid rgb(152, 152, 152);
+            color: white;
         }
 
-        .title {
-            font-weight: 600;
-            font-size: 16px;
+        ::placeholder {
+            color: rgb(112, 112, 112);
         }
 
-        .info {
-            font-size: 12px;
-            font-weight: 100;
-            color: #a4a4a4;
+        .search-btn {
+            background-color: #303131;
+            color: white;
+            border: 0;
+            padding: 5px 25px;
+            cursor: pointer;
+        }
+        .search-btn:hover{
+            opacity: 80%;
+        }
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .nav-item {
+            font-size: 14px;
+            position: relative;
+        }
+
+        .nav-item:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: -10px;
+            transform: translateY(-50%);
+            height: 80%;
+            width: 1px;
+            background-color: rgb(255, 255, 255);
         }
     </style>
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="film-container">
-            <img class="poster" src='https://yts.mx/assets/images/movies/eyes_from_the_pines_2021/medium-cover.jpg'
-                alt="">
-            <div class="title">Название</div>
-            <div class="info">1999, Жанр, жанр</div>
-        </div>
-        <div class="film-container">
-            <img class="poster" src='https://yts.mx/assets/images/movies/eyes_from_the_pines_2021/medium-cover.jpg'
-                alt="">
-            <div class="title">Название</div>
-            <div class="info">1999, Жанр, жанр</div>
-        </div>
-    </div>
+    <header class="header">
+        <h1>Films-Catalogy</h1>
+        <nav class="nav">
+            <div class="search-block">
+                <input class="search-input" type="text" placeholder="Название фильма">
+                <button class="search-btn">Поиск</button>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="">Новинки</a></li>
+                <li class="nav-item"><a href="">Жанры</a></li>
+                <li class="nav-item"><a href="">Случайный</a></li>
+            </ul>
+        </nav>
+    </header>
 </body>
 
 </html>
