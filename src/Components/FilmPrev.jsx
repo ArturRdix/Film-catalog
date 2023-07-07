@@ -1,7 +1,7 @@
 import React from 'react';
-import './FilmsList.css';
+import './FilmPrev.css';
 
-const FilmsList = ({ id, title, poster, year, genre, rate }) => {
+const FilmPrev = ({ id, title, poster, year, genre, rate }) => {
     return (
         <section className="film-container" key={id}>
             <img className="poster" src={poster} alt="Poster" />
@@ -9,10 +9,11 @@ const FilmsList = ({ id, title, poster, year, genre, rate }) => {
             <div className="info">
                 <span className='info-year'>{year}</span>
                 <br />
-                <span className='info-genre'>{genre.join(', ')}</span>
+                <span className='info-genre'>{Array.isArray(genre) ? genre.join(', ') : genre}</span>
+
                 </div>
         </section>
     );
 };
 
-export default FilmsList;
+export default FilmPrev;
